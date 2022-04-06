@@ -20,7 +20,7 @@ from PIL import ImageTk, Image # for reading and displaying images
 
 
 class CarGUI: # create a class for the GUI
-    def __init__(self, window=None, car_img_path):
+    def __init__(self, window=None):
 
         # init params for movement function
         self.window = window
@@ -59,7 +59,7 @@ class CarGUI: # create a class for the GUI
         self.canvas.create_window(230, 400, anchor='nw', window=self.velocity_units)
 
         # creating car image and axis on canvas
-        self.img = ImageTk.PhotoImage(Image.open(car_img_path))
+        self.img = ImageTk.PhotoImage(Image.open(os.path.join(os.path.curdir, 'car.png')))
         self.car = self.canvas.create_image(15, 100, anchor='nw', image=self.img)
         self.canvas.pack(fill='both', expand=1)
 
@@ -157,8 +157,7 @@ if __name__ == "__main__":
     window = tk.Tk()
     window.title('Car Movement App')
     window.geometry('500x550') # window size
-    car_img_path = os.path.join(os.path.curdir,'car.png')
-    gui = CarGUI(window,car_img_path) # pass the tk object to the CarGUI class
+    gui = CarGUI(window)  # pass the tk object to the CarGUI class
 
     # Start function main loop (start the app)
     window.mainloop()

@@ -94,7 +94,7 @@ class CarGUI: # create a class for the GUI
         velIn = float(velIn)
         
         
-        if not (posIn > 1 and velIn > 1):
+        if not (posIn >= 1 and velIn >= 1):
             messagebox.showwarning("Wrong Input", "Please enter non-zero values")
             return
 

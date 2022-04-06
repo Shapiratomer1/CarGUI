@@ -92,6 +92,11 @@ class CarGUI: # create a class for the GUI
         #change input to float
         posIn = float(posIn)
         velIn = float(velIn)
+        
+        
+        if not (posIn > 1 and velIn > 1):
+            messagebox.showwarning("Wrong Input", "Please enter non-zero values")
+            return
 
         # calculate time_step [(m):(m/sec)=sec].
         time_to_complete = (posIn / velIn)
